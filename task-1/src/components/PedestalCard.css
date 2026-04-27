@@ -1,166 +1,164 @@
-.pedestal-container {
-  margin: 3rem 0 2rem 0;
+.pedestal-section {
+  padding: 40px 0 0;
+  overflow: hidden;
 }
 
-.pedestal-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #333;
-}
-
-.pedestal {
+.pedestal-stage {
   display: flex;
-  justify-content: center;
   align-items: flex-end;
-  gap: 1rem;
-  margin-bottom: 3rem;
+  justify-content: center;
 }
 
-.pedestal-position {
+/* Individual slots */
+.pedestal-slot {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-  min-width: 150px;
 }
 
-.pedestal-position:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+.slot-second {
+  width: 210px;
 }
 
-.pedestal-position.first {
-  order: 2;
-  height: 320px;
-  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+.slot-first {
+  width: 230px;
+  z-index: 1;
 }
 
-.pedestal-position.second {
-  order: 1;
-  height: 280px;
-  background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);
+.slot-third {
+  width: 210px;
 }
 
-.pedestal-position.third {
-  order: 3;
-  height: 240px;
-  background: linear-gradient(135deg, #cd7f32 0%, #d4a574 100%);
+/* Player info above podium */
+.pedestal-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 14px;
 }
 
-.medal {
-  width: 80px;
-  height: 80px;
+/* Avatar ring */
+.avatar-ring {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.pedestal-avatar {
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar-ring-gold .pedestal-avatar {
+  width: 88px;
+  height: 88px;
+  border: 3.5px solid #f59e0b;
+}
+
+.avatar-ring-silver .pedestal-avatar {
+  width: 72px;
+  height: 72px;
+  border: 3px solid #94a3b8;
+}
+
+.avatar-ring-bronze .pedestal-avatar {
+  width: 72px;
+  height: 72px;
+  border: 3px solid #b45309;
+}
+
+/* Rank dot badge */
+.rank-dot {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
-  font-size: 2rem;
-  font-weight: bold;
-  color: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.medal.gold {
-  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-  color: #8b7500;
-}
-
-.medal.silver {
-  background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);
-  color: #666;
-}
-
-.medal.bronze {
-  background: linear-gradient(135deg, #cd7f32 0%, #d4a574 100%);
-  color: #8b6914;
-}
-
-.medal-number {
-  font-weight: 900;
-  font-size: 1.8rem;
-}
-
-.avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-  border: 4px solid rgba(255, 255, 255, 0.8);
-  object-fit: cover;
-}
-
-.employee-info {
-  text-align: center;
-}
-
-.employee-info h3 {
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
-  color: #333;
-  font-weight: 600;
-}
-
-.employee-info .position {
-  font-size: 0.85rem;
-  color: #666;
-  margin: 0.25rem 0;
-}
-
-.employee-info .score {
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 700;
-  margin-top: 0.75rem;
-  color: #333;
+  color: #fff;
+  border: 2px solid #fff;
 }
 
-@media (max-width: 768px) {
-  .pedestal {
-    gap: 0.5rem;
-  }
+.rank-dot-gold {
+  background: #d97706;
+}
 
-  .pedestal-position {
-    min-width: 120px;
-    padding: 1rem;
-  }
+.rank-dot-silver {
+  background: #64748b;
+}
 
-  .pedestal-position.first {
-    height: 280px;
-  }
+.rank-dot-bronze {
+  background: #92400e;
+}
 
-  .pedestal-position.second {
-    height: 240px;
-  }
+/* Player text */
+.player-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e293b;
+  text-align: center;
+  margin-bottom: 4px;
+  max-width: 190px;
+}
 
-  .pedestal-position.third {
-    height: 200px;
-  }
+.player-position {
+  font-size: 12px;
+  color: #94a3b8;
+  text-align: center;
+  margin-bottom: 12px;
+  max-width: 190px;
+}
 
-  .medal {
-    width: 60px;
-    height: 60px;
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
+/* Score badge */
+.score-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 6px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: #3b82f6;
+  font-size: 16px;
+  font-weight: 700;
+}
 
-  .avatar {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 0.5rem;
-  }
+/* Podium blocks */
+.podium {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  flex-shrink: 0;
+}
 
-  .employee-info h3 {
-    font-size: 0.95rem;
-  }
+.podium-gold {
+  background: linear-gradient(180deg, #f9df6d 0%, #f0c93a 100%);
+  height: 168px;
+}
 
-  .employee-info .score {
-    font-size: 1rem;
-  }
+.podium-silver {
+  background: linear-gradient(180deg, #cdd5df 0%, #b8c4d0 100%);
+  height: 132px;
+}
+
+/* Watermark rank number on podium */
+.podium-rank {
+  font-size: 96px;
+  font-weight: 900;
+  line-height: 1;
+  user-select: none;
+  color: rgba(255, 255, 255, 0.38);
+  letter-spacing: -4px;
+}
+
+.podium-gold .podium-rank {
+  color: rgba(160, 110, 0, 0.2);
 }

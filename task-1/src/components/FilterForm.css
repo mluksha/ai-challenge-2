@@ -1,61 +1,69 @@
 .filter-form {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 12px;
-  margin-bottom: 2rem;
-  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.2);
-}
-
-.form-group {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  gap: 10px;
+  align-items: center;
 }
 
-.form-group label {
-  font-weight: 600;
-  color: white;
-  font-size: 0.95rem;
-}
-
-.form-group select,
-.form-group input {
-  padding: 0.75rem 1rem;
-  border: 2px solid transparent;
+.filter-select {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1.5px solid #d1d5db;
   border-radius: 8px;
-  font-size: 0.95rem;
-  background-color: white;
-  color: #333;
-  transition: all 0.3s ease;
-}
-
-.form-group select:hover,
-.form-group input:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.form-group select:focus,
-.form-group input:focus {
+  padding: 10px 32px 10px 14px;
+  font-size: 13.5px;
+  font-family: inherit;
+  color: #374151;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  cursor: pointer;
+  min-width: 128px;
   outline: none;
-  border-color: white;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+  transition: border-color 0.15s;
 }
 
-.search-group {
-  grid-column: span 1;
+.filter-select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-@media (max-width: 768px) {
-  .filter-form {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1.5rem;
-  }
+.search-wrapper {
+  flex: 1;
+  position: relative;
+}
 
-  .search-group {
-    grid-column: span 1;
-  }
+.search-icon-wrapper {
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px 14px 10px 34px;
+  font-size: 13.5px;
+  font-family: inherit;
+  color: #374151;
+  background: #fff;
+  outline: none;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+.search-input:focus {
+  border-color: #d1d5db;
+  background: #f3f4f6;
 }

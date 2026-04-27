@@ -10,6 +10,22 @@ interface FilterFormProps {
   categories: string[];
 }
 
+const SearchIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <circle cx="11" cy="11" r="8" />
+    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+  </svg>
+);
+
 export const FilterForm: React.FC<FilterFormProps> = ({
   filterOptions,
   onFilterChange,
@@ -48,63 +64,64 @@ export const FilterForm: React.FC<FilterFormProps> = ({
   };
 
   return (
-    <form className="filter-form">
-      <div className="form-group">
-        <label htmlFor="year">Year</label>
-        <select
-          id="year"
-          value={filterOptions.year}
-          onChange={handleYearChange}
-        >
-          <option value="">All Years</option>
-          {years.map((year) => (
-            <option key={year} value={year}>
-              {year}
-            </option>
-          ))}
-        </select>
-      </div>
+    <form className="filter-form" onSubmit={(e) => e.preventDefault()}>
+      <select
+        id="year"
+        className="filter-select"
+        value={filterOptions.year}
+        onChange={handleYearChange}
+        aria-label="Filter by year"
+      >
+        <option value="">All Years</option>
+        {years.map((year) => (
+          <option key={year} value={year}>
+            {year}
+          </option>
+        ))}
+      </select>
 
-      <div className="form-group">
-        <label htmlFor="quarter">Quarter</label>
-        <select
-          id="quarter"
-          value={filterOptions.quarter}
-          onChange={handleQuarterChange}
-        >
-          <option value="">All Quarters</option>
-          {quarters.map((q) => (
-            <option key={q} value={q}>
-              Q{q}
-            </option>
-          ))}
-        </select>
-      </div>
+      <select
+        id="quarter"
+        className="filter-select"
+        value={filterOptions.quarter}
+        onChange={handleQuarterChange}
+        aria-label="Filter by quarter"
+      >
+        <option value="">All Quarters</option>
+        {quarters.map((q) => (
+          <option key={q} value={q}>
+            Q{q}
+          </option>
+        ))}
+      </select>
 
-      <div className="form-group">
-        <label htmlFor="category">Category</label>
-        <select
-          id="category"
-          value={filterOptions.category}
-          onChange={handleCategoryChange}
-        >
-          <option value="">All Categories</option>
-          {categories.map((cat) => (
-            <option key={cat} value={cat}>
-              {cat}
-            </option>
-          ))}
-        </select>
-      </div>
+      <select
+        id="category"
+        className="filter-select"
+        value={filterOptions.category}
+        onChange={handleCategoryChange}
+        aria-label="Filter by category"
+      >
+        <option value="">All Categories</option>
+        {categories.map((cat) => (
+          <option key={cat} value={cat}>
+            {cat}
+          </option>
+        ))}
+      </select>
 
-      <div className="form-group search-group">
-        <label htmlFor="search">Search Employee</label>
+      <div className="search-wrapper">
+        <span className="search-icon-wrapper" aria-hidden="true">
+          <SearchIcon />
+        </span>
         <input
           id="search"
           type="text"
-          placeholder="Search by name or position..."
+          className="search-input"
+          placeholder="Search employee..."
           value={filterOptions.searchTerm}
           onChange={handleSearchChange}
+          aria-label="Search employees"
         />
       </div>
     </form>

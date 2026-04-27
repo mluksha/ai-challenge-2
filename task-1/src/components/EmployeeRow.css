@@ -1,285 +1,246 @@
 .employee-row {
-  background: white;
-  border-radius: 12px;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background: #fff;
+  border-radius: 14px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+  border-left: 4px solid transparent;
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s;
 }
 
-.employee-row:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+.employee-row--expanded {
+  border-left-color: #3b82f6;
+  box-shadow: 0 2px 14px rgba(59, 130, 246, 0.13);
 }
 
-.employee-header {
+/* ── Header row ── */
+.employee-row-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1.25rem 1.5rem;
+  padding: 16px 18px;
+  gap: 14px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  user-select: none;
+  outline: none;
 }
 
-.employee-header:hover {
-  background-color: #f8f9fa;
+.employee-row-header:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: -2px;
+  border-radius: 14px;
 }
 
-.rank-badge {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border-radius: 50%;
-  font-weight: 700;
-  font-size: 1.1rem;
+/* Rank */
+.row-rank {
+  width: 32px;
+  text-align: center;
+  font-size: 19px;
+  font-weight: 600;
+  color: #94a3b8;
   flex-shrink: 0;
 }
 
-.employee-avatar {
-  width: 50px;
-  height: 50px;
+/* Avatar */
+.row-avatar {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #e0e0e0;
   flex-shrink: 0;
 }
 
-.employee-basic-info {
+/* Name + position */
+.row-info {
   flex: 1;
   min-width: 0;
 }
 
-.employee-basic-info h3 {
-  margin: 0;
-  font-size: 1.05rem;
-  color: #333;
+.row-name {
+  font-size: 15px;
   font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.employee-basic-info p {
-  margin: 0.25rem 0 0 0;
-  font-size: 0.9rem;
-  color: #666;
+.row-position {
+  font-size: 12.5px;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.score-section {
+/* Activity icon groups */
+.row-activity-groups {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+
+.activity-group {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.25rem;
-  flex-shrink: 0;
+  gap: 3px;
+  color: #3b82f6;
 }
 
-.score {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #667eea;
-}
-
-.score-label {
-  font-size: 0.8rem;
-  color: #999;
-  font-weight: 500;
-}
-
-.expand-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
+.activity-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #667eea;
-  font-size: 1rem;
-  transition: transform 0.3s ease;
 }
 
-.expand-btn .icon {
-  transition: transform 0.3s ease;
-  display: inline-block;
-}
-
-.expand-btn .icon.expanded {
-  transform: rotate(180deg);
-}
-
-/* Employee Details / Activities */
-.employee-details {
-  padding: 0 1.5rem 1.5rem 1.5rem;
-  background-color: #f8f9fa;
-  border-top: 1px solid #e0e0e0;
-}
-
-.activities-section h4 {
-  margin: 1.5rem 0 1rem 0;
-  font-size: 1rem;
-  color: #333;
+.activity-count {
+  font-size: 11px;
   font-weight: 600;
+  color: #3b82f6;
+  line-height: 1;
+}
+
+/* Vertical divider between activity groups and score */
+.row-score-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+  flex-shrink: 0;
+  padding: 0 6px 0 16px;
+  border-left: 1.5px solid #e5e7eb;
+  margin-left: 4px;
+}
+
+.row-score-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.row-score {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #3b82f6;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* Expand/collapse button */
+.expand-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #f1f5f9;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    border 0.15s;
+}
+
+.expand-button:hover {
+  background: #e2e8f0;
+}
+
+.expand-button--up {
+  background: #eff6ff;
+  color: #3b82f6;
+  border: 1.5px solid #bfdbfe;
+}
+
+/* ── Expanded details ── */
+.employee-row-details {
+  padding: 0 24px 22px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.activities-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  padding: 16px 0 14px;
 }
 
 .activities-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.95rem;
-}
-
-.activities-table thead {
-  background-color: #e8eaf6;
 }
 
 .activities-table th {
-  padding: 0.75rem;
-  text-align: left;
+  font-size: 11px;
   font-weight: 600;
-  color: #333;
-  border-bottom: 2px solid #e0e0e0;
+  letter-spacing: 0.5px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  text-align: left;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid #e5e7eb;
+  padding-right: 16px;
+}
+
+.activities-table th.col-points {
+  text-align: right;
+  padding-right: 0;
 }
 
 .activities-table td {
-  padding: 0.75rem;
-  border-bottom: 1px solid #e0e0e0;
-  color: #555;
+  padding: 11px 16px 11px 0;
+  font-size: 13.5px;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
 }
 
-.activity-name {
-  font-weight: 500;
-  color: #333;
+.activities-table td:last-child {
+  padding-right: 0;
 }
 
-.category-badge {
+.activities-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Activity name */
+.act-name {
+  color: #374151;
+}
+
+/* Category badge */
+.cat-badge {
   display: inline-block;
-  padding: 0.35rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 500;
+  background: #f3f4f6;
+  color: #6b7280;
+  border-radius: 12px;
+  padding: 3px 11px;
+  font-size: 12px;
   white-space: nowrap;
 }
 
-.category-badge {
-  background-color: #e3f2fd;
-  color: #1976d2;
+/* Date */
+.act-date {
+  color: #6b7280;
+  white-space: nowrap;
 }
 
-.category-badge.development {
-  background-color: #f3e5f5;
-  color: #7b1fa2;
-}
-
-.category-badge.testing {
-  background-color: #fff3e0;
-  color: #e65100;
-}
-
-.category-badge.review {
-  background-color: #e8f5e9;
-  color: #2e7d32;
-}
-
-.category-badge.mentoring {
-  background-color: #fce4ec;
-  color: #c2185b;
-}
-
-.category-badge.product {
-  background-color: #e0f2f1;
-  color: #00695c;
-}
-
-.category-badge.communication {
-  background-color: #f1f8e9;
-  color: #558b2f;
-}
-
-.category-badge.documentation {
-  background-color: #ede7f6;
-  color: #512da8;
-}
-
-.category-badge.qa {
-  background-color: #fff9c4;
-  color: #f57f17;
-}
-
-.category-badge.performance {
-  background-color: #ffebee;
-  color: #c62828;
-}
-
-.category-badge.analytics {
-  background-color: #f3e5f5;
-  color: #6a1b9a;
-}
-
-.category-badge.security {
-  background-color: #ffebee;
-  color: #d32f2f;
-}
-
-.category-badge.design {
-  background-color: #f1f8e9;
-  color: #558b2f;
-}
-
-.category-badge.research {
-  background-color: #e3f2fd;
-  color: #1565c0;
-}
-
-.category-badge.devops {
-  background-color: #e0f2f1;
-  color: #004d40;
-}
-
-.category-badge.leadership {
-  background-color: #fce4ec;
-  color: #ad1457;
-}
-
-.date {
-  color: #999;
-  font-size: 0.9rem;
-}
-
-.points {
+/* Points */
+.act-points {
+  color: #3b82f6;
   font-weight: 600;
-  color: #667eea;
-}
-
-@media (max-width: 768px) {
-  .employee-header {
-    padding: 1rem;
-    gap: 0.75rem;
-  }
-
-  .employee-avatar {
-    width: 40px;
-    height: 40px;
-  }
-
-  .rank-badge {
-    width: 35px;
-    height: 35px;
-    font-size: 0.95rem;
-  }
-
-  .employee-basic-info h3 {
-    font-size: 0.95rem;
-  }
-
-  .score {
-    font-size: 1.2rem;
-  }
-
-  .activities-table {
-    font-size: 0.85rem;
-  }
-
-  .activities-table th,
-  .activities-table td {
-    padding: 0.5rem;
-  }
+  text-align: right;
+  white-space: nowrap;
 }

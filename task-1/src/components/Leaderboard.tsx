@@ -76,35 +76,34 @@ export const Leaderboard: React.FC = () => {
 
   return (
     <div className="leaderboard-container">
-      <header className="leaderboard-header">
-        <h1>🎯 Employee Leaderboard</h1>
-        <p>Track and celebrate your team's achievements</p>
-      </header>
+      <div className="leaderboard-top-card">
+        <header className="leaderboard-header">
+          <h1>Leaderboard</h1>
+          <p>Top performers based on contributions and activity</p>
+        </header>
 
-      <FilterForm
-        filterOptions={filterOptions}
-        onFilterChange={setFilterOptions}
-        years={years}
-        quarters={quarters}
-        categories={categories}
-      />
+        <FilterForm
+          filterOptions={filterOptions}
+          onFilterChange={setFilterOptions}
+          years={years}
+          quarters={quarters}
+          categories={categories}
+        />
+      </div>
 
       <Pedestal employees={filteredEmployees} />
 
-      <section className="employees-list-section">
-        <h2>All Employees</h2>
-        <div className="employees-list">
-          {filteredEmployees.length > 0 ? (
-            filteredEmployees.map((employee) => (
-              <EmployeeRow key={employee.id} employee={employee} />
-            ))
-          ) : (
-            <div className="no-results">
-              <p>No employees found matching your filters.</p>
-            </div>
-          )}
-        </div>
-      </section>
+      <div className="employees-list">
+        {filteredEmployees.length > 0 ? (
+          filteredEmployees.map((employee) => (
+            <EmployeeRow key={employee.id} employee={employee} />
+          ))
+        ) : (
+          <div className="no-results">
+            <p>No employees found matching your filters.</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
