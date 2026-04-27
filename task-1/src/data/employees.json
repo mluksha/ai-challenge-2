@@ -1,0 +1,283 @@
+[
+  {
+    "id": "emp001",
+    "rank": 1,
+    "name": "Alex Johnson",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+    "jobPosition": "Senior Developer",
+    "totalScore": 4850,
+    "year": 2024,
+    "quarter": 1,
+    "activities": [
+      {
+        "id": "act001",
+        "activity": "Completed Feature Development",
+        "category": "Development",
+        "date": "2024-03-15",
+        "points": 500
+      },
+      {
+        "id": "act002",
+        "activity": "Code Review",
+        "category": "Review",
+        "date": "2024-03-10",
+        "points": 150
+      },
+      {
+        "id": "act003",
+        "activity": "Mentored Junior Developer",
+        "category": "Mentoring",
+        "date": "2024-03-08",
+        "points": 200
+      }
+    ]
+  },
+  {
+    "id": "emp002",
+    "rank": 2,
+    "name": "Sarah Chen",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
+    "jobPosition": "Product Manager",
+    "totalScore": 4620,
+    "year": 2024,
+    "quarter": 1,
+    "activities": [
+      {
+        "id": "act004",
+        "activity": "Product Launch",
+        "category": "Product",
+        "date": "2024-03-12",
+        "points": 600
+      },
+      {
+        "id": "act005",
+        "activity": "Stakeholder Presentation",
+        "category": "Communication",
+        "date": "2024-03-05",
+        "points": 250
+      },
+      {
+        "id": "act006",
+        "activity": "Requirements Documentation",
+        "category": "Documentation",
+        "date": "2024-03-01",
+        "points": 180
+      }
+    ]
+  },
+  {
+    "id": "emp003",
+    "rank": 3,
+    "name": "Michael Rodriguez",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Michael",
+    "jobPosition": "QA Engineer",
+    "totalScore": 4380,
+    "year": 2024,
+    "quarter": 1,
+    "activities": [
+      {
+        "id": "act007",
+        "activity": "Test Automation Setup",
+        "category": "Testing",
+        "date": "2024-03-14",
+        "points": 450
+      },
+      {
+        "id": "act008",
+        "activity": "Bug Fix Implementation",
+        "category": "QA",
+        "date": "2024-03-09",
+        "points": 200
+      },
+      {
+        "id": "act009",
+        "activity": "Performance Testing",
+        "category": "Testing",
+        "date": "2024-03-03",
+        "points": 300
+      }
+    ]
+  },
+  {
+    "id": "emp004",
+    "rank": 4,
+    "name": "Emily Watson",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Emily",
+    "jobPosition": "UX Designer",
+    "totalScore": 3950,
+    "year": 2024,
+    "quarter": 1,
+    "activities": [
+      {
+        "id": "act010",
+        "activity": "Design System Contribution",
+        "category": "Design",
+        "date": "2024-03-16",
+        "points": 400
+      },
+      {
+        "id": "act011",
+        "activity": "User Research",
+        "category": "Research",
+        "date": "2024-03-11",
+        "points": 220
+      }
+    ]
+  },
+  {
+    "id": "emp005",
+    "rank": 5,
+    "name": "James Park",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=James",
+    "jobPosition": "Backend Developer",
+    "totalScore": 3720,
+    "year": 2024,
+    "quarter": 1,
+    "activities": [
+      {
+        "id": "act012",
+        "activity": "API Integration",
+        "category": "Development",
+        "date": "2024-03-13",
+        "points": 350
+      },
+      {
+        "id": "act013",
+        "activity": "Database Optimization",
+        "category": "Performance",
+        "date": "2024-03-07",
+        "points": 280
+      }
+    ]
+  },
+  {
+    "id": "emp006",
+    "rank": 6,
+    "name": "Lisa Anderson",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Lisa",
+    "jobPosition": "DevOps Engineer",
+    "totalScore": 3580,
+    "year": 2024,
+    "quarter": 1,
+    "activities": [
+      {
+        "id": "act014",
+        "activity": "CI/CD Pipeline Setup",
+        "category": "DevOps",
+        "date": "2024-03-10",
+        "points": 400
+      },
+      {
+        "id": "act015",
+        "activity": "Infrastructure Monitoring",
+        "category": "DevOps",
+        "date": "2024-03-04",
+        "points": 150
+      }
+    ]
+  },
+  {
+    "id": "emp007",
+    "rank": 7,
+    "name": "David Lee",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
+    "jobPosition": "Frontend Developer",
+    "totalScore": 3420,
+    "year": 2024,
+    "quarter": 1,
+    "activities": [
+      {
+        "id": "act016",
+        "activity": "React Component Library",
+        "category": "Development",
+        "date": "2024-03-12",
+        "points": 380
+      },
+      {
+        "id": "act017",
+        "activity": "Responsive Design Implementation",
+        "category": "Design",
+        "date": "2024-03-06",
+        "points": 190
+      }
+    ]
+  },
+  {
+    "id": "emp008",
+    "rank": 8,
+    "name": "Rachel Brown",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Rachel",
+    "jobPosition": "Technical Lead",
+    "totalScore": 3250,
+    "year": 2024,
+    "quarter": 1,
+    "activities": [
+      {
+        "id": "act018",
+        "activity": "Architecture Review",
+        "category": "Review",
+        "date": "2024-03-11",
+        "points": 320
+      },
+      {
+        "id": "act019",
+        "activity": "Team Standup Leadership",
+        "category": "Leadership",
+        "date": "2024-03-08",
+        "points": 100
+      }
+    ]
+  },
+  {
+    "id": "emp009",
+    "rank": 9,
+    "name": "Thomas Martinez",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Thomas",
+    "jobPosition": "Security Engineer",
+    "totalScore": 3100,
+    "year": 2024,
+    "quarter": 1,
+    "activities": [
+      {
+        "id": "act020",
+        "activity": "Security Audit",
+        "category": "Security",
+        "date": "2024-03-14",
+        "points": 450
+      },
+      {
+        "id": "act021",
+        "activity": "Vulnerability Assessment",
+        "category": "Security",
+        "date": "2024-03-02",
+        "points": 280
+      }
+    ]
+  },
+  {
+    "id": "emp010",
+    "rank": 10,
+    "name": "Sophia Wilson",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Sophia",
+    "jobPosition": "Data Analyst",
+    "totalScore": 2980,
+    "year": 2024,
+    "quarter": 1,
+    "activities": [
+      {
+        "id": "act022",
+        "activity": "Analytics Dashboard",
+        "category": "Analytics",
+        "date": "2024-03-13",
+        "points": 300
+      },
+      {
+        "id": "act023",
+        "activity": "Data Visualization",
+        "category": "Analytics",
+        "date": "2024-03-09",
+        "points": 240
+      }
+    ]
+  }
+]

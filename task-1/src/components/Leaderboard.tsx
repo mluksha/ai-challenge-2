@@ -1,0 +1,104 @@
+import React, { useState, useMemo } from 'react';
+import type { Employee, FilterOptions } from '../types/employee';
+import employeesData from '../data/employees.json';
+import { FilterForm } from './FilterForm';
+import { Pedestal } from './PedestalCard';
+import { EmployeeRow } from './EmployeeRow';
+import './Leaderboard.css';
+
+export const Leaderboard: React.FC = () => {
+  const employees: Employee[] = employeesData;
+
+  const [filterOptions, setFilterOptions] = useState<FilterOptions>({
+    year: '',
+    quarter: '',
+    category: '',
+    searchTerm: '',
+  });
+
+  // Get unique years, quarters, and categories from employees
+  const years = useMemo(() => {
+    return [...new Set(employees.map((emp) => emp.year))].sort((a, b) => b - a);
+  }, []);
+
+  const quarters = useMemo(() => {
+    return [...new Set(employees.map((emp) => emp.quarter))].sort((a, b) => a - b);
+  }, []);
+
+  const categories = useMemo(() => {
+    const cats = new Set<string>();
+    employees.forEach((emp) => {
+      emp.activities.forEach((act) => {
+        cats.add(act.category);
+      });
+    });
+    return Array.from(cats).sort();
+  }, []);
+
+  // Filter and sort employees
+  const filteredEmployees = useMemo(() => {
+    let filtered = employees;
+
+    // Filter by year
+    if (filterOptions.year !== '') {
+      filtered = filtered.filter((emp) => emp.year === filterOptions.year);
+    }
+
+    // Filter by quarter
+    if (filterOptions.quarter !== '') {
+      filtered = filtered.filter((emp) => emp.quarter === filterOptions.quarter);
+    }
+
+    // Filter by category in activities
+    if (filterOptions.category !== '') {
+      filtered = filtered.filter((emp) =>
+        emp.activities.some((act) => act.category === filterOptions.category)
+      );
+    }
+
+    // Filter by search term (name or position)
+    if (filterOptions.searchTerm !== '') {
+      const searchLower = filterOptions.searchTerm.toLowerCase();
+      filtered = filtered.filter(
+        (emp) =>
+          emp.name.toLowerCase().includes(searchLower) ||
+          emp.jobPosition.toLowerCase().includes(searchLower)
+      );
+    }
+
+    // Sort by rank
+    return filtered.sort((a, b) => a.rank - b.rank);
+  }, [filterOptions]);
+
+  return (
+    <div className="leaderboard-container">
+      <header className="leaderboard-header">
+        <h1>🎯 Employee Leaderboard</h1>
+        <p>Track and celebrate your team's achievements</p>
+      </header>
+
+      <FilterForm
+        filterOptions={filterOptions}
+        onFilterChange={setFilterOptions}
+        years={years}
+        quarters={quarters}
+        categories={categories}
+      />
+
+      <Pedestal employees={filteredEmployees} />
+
+      <section className="employees-list-section">
+        <h2>All Employees</h2>
+        <div className="employees-list">
+          {filteredEmployees.length > 0 ? (
+            filteredEmployees.map((employee) => <EmployeeRow key={employee.id} employee={employee} />)
+          ) : (
+            <div className="no-results">
+              <p>No employees found matching your filters.</p>
+            </div>
+          )}
+        </div>
+      </section>
+    </div>
+  );
+};

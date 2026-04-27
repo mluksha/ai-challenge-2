@@ -1,0 +1,69 @@
+.leaderboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.leaderboard-header {
+  text-align: center;
+  padding: 3rem 1rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.leaderboard-header h1 {
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem;
+  color: #333;
+  font-weight: 800;
+}
+
+.leaderboard-header p {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+}
+
+.employees-list-section {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.employees-list-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.employees-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.no-results p {
+  font-size: 1.1rem;
+  color: #999;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .leaderboard-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .leaderboard-header p {
+    font-size: 1rem;
+  }
+
+  .employees-list-section h2 {
+    font-size: 1.4rem;
+  }
+}
