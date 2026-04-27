@@ -10,7 +10,7 @@
 }
 
 .employee-row--expanded {
-  border-color: #3b82f6;
+  border-color: #0ea5e9;
   box-shadow: 0 2px 14px rgba(59, 130, 246, 0.13);
 }
 
@@ -26,7 +26,7 @@
 }
 
 .employee-row-header:focus-visible {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid #0ea5e9;
   outline-offset: -2px;
   border-radius: 14px;
 }
@@ -88,7 +88,7 @@
   flex-direction: column;
   align-items: center;
   gap: 3px;
-  color: #3b82f6;
+  color: #0ea5e9;
 }
 
 .activity-icon {
@@ -100,7 +100,7 @@
 .activity-count {
   font-size: 11px;
   font-weight: 600;
-  color: #3b82f6;
+  color: #0ea5e9;
   line-height: 1;
 }
 
@@ -128,7 +128,7 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  color: #3b82f6;
+  color: #0ea5e9;
   font-size: 22px;
   font-weight: 700;
   line-height: 1.1;
@@ -159,7 +159,7 @@
 
 .expand-button--up {
   background: #eff6ff;
-  color: #3b82f6;
+  color: #0ea5e9;
   border: 1.5px solid #bfdbfe;
 }
 
@@ -239,7 +239,7 @@
 
 /* Points */
 .act-points {
-  color: #3b82f6;
+  color: #0ea5e9;
   font-weight: 600;
   text-align: right;
   white-space: nowrap;
