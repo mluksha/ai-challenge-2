@@ -1,0 +1,2 @@
+- Generate code based on a brief functional description
+- Update styles based on screenshots
