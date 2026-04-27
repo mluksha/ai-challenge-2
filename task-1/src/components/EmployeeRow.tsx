@@ -133,6 +133,10 @@ const formatDate = (dateStr: string) => {
 export const EmployeeRow: React.FC<EmployeeRowProps> = ({ employee }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const activityGroups = getActivityGroups(employee.activities);
+  const totalScore = employee.activities.reduce(
+    (sum, activity) => sum + activity.points,
+    0,
+  );
 
   const toggle = () => setIsExpanded((prev) => !prev);
 
@@ -175,7 +179,7 @@ export const EmployeeRow: React.FC<EmployeeRowProps> = ({ employee }) => {
           <div className="row-score-label">TOTAL</div>
           <div className="row-score">
             <StarIcon />
-            <span>{employee.totalScore.toLocaleString()}</span>
+            <span>{totalScore.toLocaleString()}</span>
           </div>
         </div>
 

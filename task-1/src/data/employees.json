@@ -5,7 +5,6 @@
     "name": "Alex Johnson",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
     "jobPosition": "Senior Developer",
-    "totalScore": 4850,
     "year": 2024,
     "quarter": 1,
     "activities": [
@@ -38,7 +37,6 @@
     "name": "Sarah Chen",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
     "jobPosition": "Product Manager",
-    "totalScore": 4620,
     "year": 2024,
     "quarter": 1,
     "activities": [
@@ -71,7 +69,6 @@
     "name": "Michael Rodriguez",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Michael",
     "jobPosition": "QA Engineer",
-    "totalScore": 4380,
     "year": 2024,
     "quarter": 1,
     "activities": [
@@ -104,7 +101,6 @@
     "name": "Emily Watson",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Emily",
     "jobPosition": "UX Designer",
-    "totalScore": 3950,
     "year": 2024,
     "quarter": 1,
     "activities": [
@@ -130,7 +126,6 @@
     "name": "James Park",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=James",
     "jobPosition": "Backend Developer",
-    "totalScore": 3720,
     "year": 2024,
     "quarter": 1,
     "activities": [
@@ -156,7 +151,6 @@
     "name": "Lisa Anderson",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Lisa",
     "jobPosition": "DevOps Engineer",
-    "totalScore": 3580,
     "year": 2024,
     "quarter": 1,
     "activities": [
@@ -182,7 +176,6 @@
     "name": "David Lee",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
     "jobPosition": "Frontend Developer",
-    "totalScore": 3420,
     "year": 2024,
     "quarter": 1,
     "activities": [
@@ -208,7 +201,6 @@
     "name": "Rachel Brown",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Rachel",
     "jobPosition": "Technical Lead",
-    "totalScore": 3250,
     "year": 2024,
     "quarter": 1,
     "activities": [
@@ -234,7 +226,6 @@
     "name": "Thomas Martinez",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Thomas",
     "jobPosition": "Security Engineer",
-    "totalScore": 3100,
     "year": 2024,
     "quarter": 1,
     "activities": [
@@ -260,7 +251,6 @@
     "name": "Sophia Wilson",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Sophia",
     "jobPosition": "Data Analyst",
-    "totalScore": 2980,
     "year": 2024,
     "quarter": 1,
     "activities": [

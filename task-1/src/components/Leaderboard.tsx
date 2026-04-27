@@ -6,6 +6,9 @@ import { Pedestal } from "./PedestalCard";
 import { EmployeeRow } from "./EmployeeRow";
 import "./Leaderboard.css";
 
+const getTotalScore = (employee: Employee) =>
+  employee.activities.reduce((sum, activity) => sum + activity.points, 0);
+
 export const Leaderboard: React.FC = () => {
   const employees: Employee[] = employeesData;
 
@@ -70,8 +73,12 @@ export const Leaderboard: React.FC = () => {
       );
     }
 
-    // Sort by rank
-    return filtered.sort((a, b) => a.rank - b.rank);
+    // Sort by computed total score (descending) so highest performer is first.
+    return filtered.sort((a, b) => {
+      const scoreDiff = getTotalScore(b) - getTotalScore(a);
+      if (scoreDiff !== 0) return scoreDiff;
+      return a.rank - b.rank;
+    });
   }, [filterOptions]);
 
   return (

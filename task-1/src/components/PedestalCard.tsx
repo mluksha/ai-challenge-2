@@ -51,6 +51,11 @@ const PedestalSlot: React.FC<SlotProps> = ({ emp, rank, slotClass }) => {
     );
   }
 
+  const totalScore = emp.activities.reduce(
+    (sum, activity) => sum + activity.points,
+    0,
+  );
+
   return (
     <div className={`pedestal-slot ${slotClass}`}>
       <div className="pedestal-player">
@@ -66,7 +71,7 @@ const PedestalSlot: React.FC<SlotProps> = ({ emp, rank, slotClass }) => {
         <div className="player-position">{emp.jobPosition}</div>
         <div className="score-badge">
           <StarIcon />
-          <span>{emp.totalScore.toLocaleString()}</span>
+          <span>{totalScore.toLocaleString()}</span>
         </div>
       </div>
       <div className={`podium ${podiumClass}`}>

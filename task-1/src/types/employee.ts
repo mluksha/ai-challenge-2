@@ -12,7 +12,6 @@ export interface Employee {
   name: string;
   avatar: string;
   jobPosition: string;
-  totalScore: number;
   year: number;
   quarter: number;
   activities: Activity[];
