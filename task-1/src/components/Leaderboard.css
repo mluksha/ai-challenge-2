@@ -6,7 +6,7 @@
 
 .leaderboard-top-card {
   background: #f8fafc;
-  border-radius: 16px;
+  border-radius: 0;
   padding: 36px 32px 28px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   margin-bottom: 28px;
@@ -27,7 +27,7 @@
 
 .leaderboard-header p {
   font-size: 13.5px;
-  color: #60a5fa;
+  color: rgb(100, 116, 139);
   margin: 0;
 }
 

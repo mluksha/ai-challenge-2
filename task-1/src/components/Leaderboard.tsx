@@ -89,20 +89,20 @@ export const Leaderboard: React.FC = () => {
           quarters={quarters}
           categories={categories}
         />
-      </div>
 
-      <Pedestal employees={filteredEmployees} />
+        <Pedestal employees={filteredEmployees} />
 
-      <div className="employees-list">
-        {filteredEmployees.length > 0 ? (
-          filteredEmployees.map((employee) => (
-            <EmployeeRow key={employee.id} employee={employee} />
-          ))
-        ) : (
-          <div className="no-results">
-            <p>No employees found matching your filters.</p>
-          </div>
-        )}
+        <div className="employees-list">
+          {filteredEmployees.length > 0 ? (
+            filteredEmployees.map((employee) => (
+              <EmployeeRow key={employee.id} employee={employee} />
+            ))
+          ) : (
+            <div className="no-results">
+              <p>No employees found matching your filters.</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
