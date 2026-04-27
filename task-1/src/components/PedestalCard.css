@@ -7,6 +7,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  gap: 18px;
 }
 
 /* Individual slots */
@@ -47,6 +48,11 @@
   display: block;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.pedestal-avatar-lg {
+  width: 104px;
+  height: 104px;
 }
 
 .avatar-ring-gold .pedestal-avatar {
@@ -128,6 +134,12 @@
   font-weight: 700;
 }
 
+.slot-first .score-badge {
+  color: rgb(202, 138, 4);
+  background: rgb(254, 249, 195);
+  border: 1px solid rgb(253, 224, 71);
+}
+
 /* Podium blocks */
 .podium {
   width: 100%;
@@ -137,15 +149,19 @@
   border-radius: 10px 10px 0 0;
   overflow: hidden;
   flex-shrink: 0;
+  border-top-width: 4px;
+  border-top-style: solid;
 }
 
 .podium-gold {
-  background: linear-gradient(180deg, #f9df6d 0%, #f0c93a 100%);
+  background: linear-gradient(rgb(254, 243, 199), rgb(253, 230, 138));
+  border-top-color: rgb(253, 224, 71);
   height: 168px;
 }
 
 .podium-silver {
-  background: linear-gradient(180deg, #cdd5df 0%, #b8c4d0 100%);
+  background: linear-gradient(rgb(226, 232, 240), rgb(203, 213, 225));
+  border-top-color: rgb(203, 213, 225);
   height: 132px;
 }
 
