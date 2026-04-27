@@ -64,13 +64,13 @@
 .avatar-ring-silver .pedestal-avatar {
   width: 72px;
   height: 72px;
-  border: 3px solid #94a3b8;
+  border: 3px solid #fff;
 }
 
 .avatar-ring-bronze .pedestal-avatar {
   width: 72px;
   height: 72px;
-  border: 3px solid #b45309;
+  border: 3px solid #fff;
 }
 
 /* Rank dot badge */
