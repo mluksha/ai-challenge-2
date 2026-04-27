@@ -1,0 +1,182 @@
+.pedestal-section {
+  padding: 40px 0 0;
+  overflow: hidden;
+}
+
+.pedestal-stage {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 18px;
+}
+
+/* Individual slots */
+.pedestal-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slot-second {
+  width: 210px;
+}
+
+.slot-first {
+  width: 230px;
+  z-index: 1;
+}
+
+.slot-third {
+  width: 210px;
+}
+
+/* Player info above podium */
+.pedestal-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 14px;
+}
+
+/* Avatar ring */
+.avatar-ring {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.pedestal-avatar {
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.pedestal-avatar-lg {
+  width: 104px;
+  height: 104px;
+}
+
+.avatar-ring-gold .pedestal-avatar {
+  width: 110px;
+  height: 110px;
+  border: 3.5px solid rgb(251, 191, 36);
+}
+
+.avatar-ring-silver .pedestal-avatar {
+  width: 72px;
+  height: 72px;
+  border: 3px solid #fff;
+}
+
+.avatar-ring-bronze .pedestal-avatar {
+  width: 72px;
+  height: 72px;
+  border: 3px solid #fff;
+}
+
+/* Rank dot badge */
+.rank-dot {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.rank-dot-gold {
+  background: #eab308;
+  width: 32px;
+  height: 32px;
+}
+
+.rank-dot-silver {
+  background: #64748b;
+}
+
+.rank-dot-bronze {
+  background: #92400e;
+}
+
+/* Player text */
+.player-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e293b;
+  text-align: center;
+  margin-bottom: 4px;
+  max-width: 190px;
+}
+
+.player-position {
+  font-size: 12px;
+  color: #94a3b8;
+  text-align: center;
+  margin-bottom: 12px;
+  max-width: 190px;
+}
+
+/* Score badge */
+.score-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f8fafc;
+  border-radius: 20px;
+  padding: 6px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: #0ea5e9;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.slot-first .score-badge {
+  color: rgb(202, 138, 4);
+  background: rgb(254, 249, 195);
+  border: 1px solid rgb(253, 224, 71);
+}
+
+/* Podium blocks */
+.podium {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-top-width: 4px;
+  border-top-style: solid;
+}
+
+.podium-gold {
+  background: linear-gradient(rgb(254, 243, 199), rgb(253, 230, 138));
+  border-top-color: rgb(253, 224, 71);
+  height: 168px;
+}
+
+.podium-silver {
+  background: linear-gradient(rgb(226, 232, 240), rgb(203, 213, 225));
+  border-top-color: rgb(203, 213, 225);
+  height: 132px;
+}
+
+/* Watermark rank number on podium */
+.podium-rank {
+  font-size: 96px;
+  font-weight: 900;
+  line-height: 1;
+  user-select: none;
+  color: rgba(255, 255, 255, 0.38);
+  letter-spacing: -4px;
+}
+
+.podium-gold .podium-rank {
+  color: rgba(160, 110, 0, 0.2);
+}

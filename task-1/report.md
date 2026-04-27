@@ -1,0 +1,2 @@
+- Generate code based on a description using Github Copilot
+- Update styles based on screenshots using Github Copilot

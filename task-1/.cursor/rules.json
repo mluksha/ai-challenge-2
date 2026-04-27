@@ -1,0 +1,65 @@
+{
+  "rules": [
+    {
+      "name": "React Component Development",
+      "description": "Guidelines for creating and modifying React components",
+      "rules": [
+        "Always use TypeScript with strict typing - no 'any' types",
+        "Create components in src/components/ directory",
+        "Co-locate CSS files with components (e.g., Component.tsx with Component.css)",
+        "Use React hooks (useState, useMemo, useCallback) appropriately",
+        "Export components as named exports, not default exports",
+        "Add proper JSDoc comments for component props",
+        "Implement accessibility features (ARIA labels, semantic HTML)",
+        "Use consistent component naming conventions"
+      ]
+    },
+    {
+      "name": "TypeScript Usage",
+      "description": "TypeScript best practices for this project",
+      "rules": [
+        "Define all data structures in src/types/ directory",
+        "Use interfaces over types for object definitions",
+        "Avoid any implicit types - use explicit typing",
+        "Import types using 'import type' for better tree-shaking",
+        "Maintain strict mode in tsconfig.json",
+        "Use union types for variant data"
+      ]
+    },
+    {
+      "name": "Styling Standards",
+      "description": "CSS and styling conventions",
+      "rules": [
+        "Primary gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "Background gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
+        "Use consistent spacing: 0.5rem, 1rem, 1.5rem, 2rem, 3rem",
+        "Box shadow for depth: 0 8px 32px rgba(102, 126, 234, 0.2)",
+        "Smooth transitions: transition: all 0.3s ease",
+        "Mobile breakpoint: 768px",
+        "Use flexbox for layouts",
+        "Maintain color consistency: #333 for dark text, #999 for light"
+      ]
+    },
+    {
+      "name": "Data Management",
+      "description": "How to handle employee data",
+      "rules": [
+        "Employee data stored in src/data/employees.json",
+        "Each employee must have: id, rank, name, avatar, jobPosition, totalScore, year, quarter, activities",
+        "Activities include: id, activity, category, date, points",
+        "Use useMemo for filtering operations in Leaderboard component",
+        "Maintain sorting by rank property"
+      ]
+    },
+    {
+      "name": "Feature Implementation",
+      "description": "Guidelines for adding new features",
+      "rules": [
+        "Filtering: Extend FilterOptions in types, add form field, implement filter logic",
+        "New component: Create .tsx file, create .css file, export named component",
+        "New employee: Add to employees.json maintaining interface structure",
+        "New activity category: Add to employee activities, update styling in EmployeeRow.css"
+      ]
+    }
+  ]
+}

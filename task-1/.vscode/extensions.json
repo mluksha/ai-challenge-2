@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "ms-vscode.vscode-typescript-next",
+    "GitHub.copilot",
+    "ms-vscode-react.redux-devtools",
+    "dsznajder.es7-react-js-snippets"
+  ]
+}
