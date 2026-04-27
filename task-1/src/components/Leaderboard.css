@@ -5,7 +5,7 @@
 }
 
 .leaderboard-top-card {
-  background: #fff;
+  background: #f8fafc;
   border-radius: 16px;
   padding: 36px 32px 28px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
@@ -43,6 +43,6 @@
   padding: 48px 24px;
   color: #94a3b8;
   font-size: 15px;
-  background: #fff;
+  background: #f8fafc;
   border-radius: 14px;
 }

@@ -7,13 +7,13 @@
 .filter-select {
   appearance: none;
   -webkit-appearance: none;
-  border: 1.5px solid #d1d5db;
-  border-radius: 8px;
+  border: 1px solid rgb(55, 55, 55);
+  border-radius: 0;
   padding: 10px 32px 10px 14px;
   font-size: 13.5px;
   font-family: inherit;
   color: #374151;
-  background-color: #fff;
+  background-color: rgb(235, 235, 237);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 10px center;
@@ -24,8 +24,7 @@
 }
 
 .filter-select:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: none;
 }
 
 .search-wrapper {
@@ -46,13 +45,13 @@
 
 .search-input {
   width: 100%;
-  border: 1.5px solid #d1d5db;
-  border-radius: 8px;
+  border: 1px solid rgb(55, 55, 55);
+  border-radius: 0;
   padding: 10px 14px 10px 34px;
   font-size: 13.5px;
   font-family: inherit;
   color: #374151;
-  background: #fff;
+  background: rgb(235, 235, 237);
   outline: none;
   transition:
     border-color 0.15s,
@@ -64,6 +63,5 @@
 }
 
 .search-input:focus {
-  border-color: #d1d5db;
   background: #f3f4f6;
 }
