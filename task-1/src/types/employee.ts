@@ -8,7 +8,6 @@ export interface Activity {
 
 export interface Employee {
   id: string;
-  rank: number;
   name: string;
   avatar: string;
   jobPosition: string;

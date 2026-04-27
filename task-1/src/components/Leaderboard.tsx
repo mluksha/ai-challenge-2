@@ -77,7 +77,7 @@ export const Leaderboard: React.FC = () => {
     return filtered.sort((a, b) => {
       const scoreDiff = getTotalScore(b) - getTotalScore(a);
       if (scoreDiff !== 0) return scoreDiff;
-      return a.rank - b.rank;
+      return a.name.localeCompare(b.name);
     });
   }, [filterOptions]);
 
@@ -103,8 +103,12 @@ export const Leaderboard: React.FC = () => {
 
         <div className="employees-list">
           {filteredEmployees.length > 0 ? (
-            filteredEmployees.map((employee) => (
-              <EmployeeRow key={employee.id} employee={employee} />
+            filteredEmployees.map((employee, index) => (
+              <EmployeeRow
+                key={employee.id}
+                employee={employee}
+                displayRank={index + 1}
+              />
             ))
           ) : (
             <div className="no-results">

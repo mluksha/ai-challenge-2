@@ -4,6 +4,7 @@ import "./EmployeeRow.css";
 
 interface EmployeeRowProps {
   employee: Employee;
+  displayRank: number;
 }
 
 const ComputerIcon = () => (
@@ -130,7 +131,10 @@ const formatDate = (dateStr: string) => {
   return `${day}-${months[date.getMonth()]}-${date.getFullYear()}`;
 };
 
-export const EmployeeRow: React.FC<EmployeeRowProps> = ({ employee }) => {
+export const EmployeeRow: React.FC<EmployeeRowProps> = ({
+  employee,
+  displayRank,
+}) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const activityGroups = getActivityGroups(employee.activities);
   const totalScore = employee.activities.reduce(
@@ -157,7 +161,7 @@ export const EmployeeRow: React.FC<EmployeeRowProps> = ({ employee }) => {
           }
         }}
       >
-        <div className="row-rank">{employee.rank}</div>
+        <div className="row-rank">{displayRank}</div>
         <img src={employee.avatar} alt={employee.name} className="row-avatar" />
         <div className="row-info">
           <div className="row-name">{employee.name}</div>

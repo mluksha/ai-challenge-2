@@ -1,7 +1,6 @@
 [
   {
     "id": "emp001",
-    "rank": 1,
     "name": "Alex Johnson",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
     "jobPosition": "Senior Developer",
@@ -33,7 +32,6 @@
   },
   {
     "id": "emp002",
-    "rank": 2,
     "name": "Sarah Chen",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
     "jobPosition": "Product Manager",
@@ -65,7 +63,6 @@
   },
   {
     "id": "emp003",
-    "rank": 3,
     "name": "Michael Rodriguez",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Michael",
     "jobPosition": "QA Engineer",
@@ -97,7 +94,6 @@
   },
   {
     "id": "emp004",
-    "rank": 4,
     "name": "Emily Watson",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Emily",
     "jobPosition": "UX Designer",
@@ -122,7 +118,6 @@
   },
   {
     "id": "emp005",
-    "rank": 5,
     "name": "James Park",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=James",
     "jobPosition": "Backend Developer",
@@ -147,7 +142,6 @@
   },
   {
     "id": "emp006",
-    "rank": 6,
     "name": "Lisa Anderson",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Lisa",
     "jobPosition": "DevOps Engineer",
@@ -172,7 +166,6 @@
   },
   {
     "id": "emp007",
-    "rank": 7,
     "name": "David Lee",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
     "jobPosition": "Frontend Developer",
@@ -197,7 +190,6 @@
   },
   {
     "id": "emp008",
-    "rank": 8,
     "name": "Rachel Brown",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Rachel",
     "jobPosition": "Technical Lead",
@@ -222,7 +214,6 @@
   },
   {
     "id": "emp009",
-    "rank": 9,
     "name": "Thomas Martinez",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Thomas",
     "jobPosition": "Security Engineer",
@@ -247,7 +238,6 @@
   },
   {
     "id": "emp010",
-    "rank": 10,
     "name": "Sophia Wilson",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Sophia",
     "jobPosition": "Data Analyst",
