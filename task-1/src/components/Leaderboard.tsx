@@ -82,13 +82,15 @@ export const Leaderboard: React.FC = () => {
           <p>Top performers based on contributions and activity</p>
         </header>
 
-        <FilterForm
-          filterOptions={filterOptions}
-          onFilterChange={setFilterOptions}
-          years={years}
-          quarters={quarters}
-          categories={categories}
-        />
+        <div className="leaderboard-form-card">
+          <FilterForm
+            filterOptions={filterOptions}
+            onFilterChange={setFilterOptions}
+            years={years}
+            quarters={quarters}
+            categories={categories}
+          />
+        </div>
 
         <Pedestal employees={filteredEmployees} />
 
