@@ -1,2 +1,2 @@
-- Generate code based on a brief functional description
-- Update styles based on screenshots
+- Generate code based on a description using Github Copilot
+- Update styles based on screenshots using Github Copilot
