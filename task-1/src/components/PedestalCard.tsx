@@ -1,6 +1,6 @@
-import React from 'react';
-import type { Employee } from '../types/employee';
-import './PedestalCard.css';
+import React from "react";
+import type { Employee } from "../types/employee";
+import "./PedestalCard.css";
 
 interface PedestalProps {
   employees: Employee[];
@@ -16,13 +16,13 @@ export const Pedestal: React.FC<PedestalProps> = ({ employees }) => {
   const getMedalColor = (rank: number) => {
     switch (rank) {
       case 1:
-        return 'gold';
+        return "gold";
       case 2:
-        return 'silver';
+        return "silver";
       case 3:
-        return 'bronze';
+        return "bronze";
       default:
-        return 'default';
+        return "default";
     }
   };
 
@@ -36,11 +36,17 @@ export const Pedestal: React.FC<PedestalProps> = ({ employees }) => {
             <div className={`medal ${getMedalColor(topThree[1].rank)}`}>
               <span className="medal-number">2</span>
             </div>
-            <img src={topThree[1].avatar} alt={topThree[1].name} className="avatar" />
+            <img
+              src={topThree[1].avatar}
+              alt={topThree[1].name}
+              className="avatar"
+            />
             <div className="employee-info">
               <h3>{topThree[1].name}</h3>
               <p className="position">{topThree[1].jobPosition}</p>
-              <p className="score">{topThree[1].totalScore.toLocaleString()} pts</p>
+              <p className="score">
+                {topThree[1].totalScore.toLocaleString()} pts
+              </p>
             </div>
           </div>
         )}
@@ -51,11 +57,17 @@ export const Pedestal: React.FC<PedestalProps> = ({ employees }) => {
             <div className={`medal ${getMedalColor(topThree[0].rank)}`}>
               <span className="medal-number">1</span>
             </div>
-            <img src={topThree[0].avatar} alt={topThree[0].name} className="avatar" />
+            <img
+              src={topThree[0].avatar}
+              alt={topThree[0].name}
+              className="avatar"
+            />
             <div className="employee-info">
               <h3>{topThree[0].name}</h3>
               <p className="position">{topThree[0].jobPosition}</p>
-              <p className="score">{topThree[0].totalScore.toLocaleString()} pts</p>
+              <p className="score">
+                {topThree[0].totalScore.toLocaleString()} pts
+              </p>
             </div>
           </div>
         )}
@@ -66,11 +78,17 @@ export const Pedestal: React.FC<PedestalProps> = ({ employees }) => {
             <div className={`medal ${getMedalColor(topThree[2].rank)}`}>
               <span className="medal-number">3</span>
             </div>
-            <img src={topThree[2].avatar} alt={topThree[2].name} className="avatar" />
+            <img
+              src={topThree[2].avatar}
+              alt={topThree[2].name}
+              className="avatar"
+            />
             <div className="employee-info">
               <h3>{topThree[2].name}</h3>
               <p className="position">{topThree[2].jobPosition}</p>
-              <p className="score">{topThree[2].totalScore.toLocaleString()} pts</p>
+              <p className="score">
+                {topThree[2].totalScore.toLocaleString()} pts
+              </p>
             </div>
           </div>
         )}

@@ -19,8 +19,8 @@ export interface Employee {
 }
 
 export interface FilterOptions {
-  year: number | '';
-  quarter: number | '';
+  year: number | "";
+  quarter: number | "";
   category: string;
   searchTerm: string;
 }

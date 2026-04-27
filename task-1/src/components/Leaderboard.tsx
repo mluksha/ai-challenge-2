@@ -1,19 +1,19 @@
-import React, { useState, useMemo } from 'react';
-import type { Employee, FilterOptions } from '../types/employee';
-import employeesData from '../data/employees.json';
-import { FilterForm } from './FilterForm';
-import { Pedestal } from './PedestalCard';
-import { EmployeeRow } from './EmployeeRow';
-import './Leaderboard.css';
+import React, { useState, useMemo } from "react";
+import type { Employee, FilterOptions } from "../types/employee";
+import employeesData from "../data/employees.json";
+import { FilterForm } from "./FilterForm";
+import { Pedestal } from "./PedestalCard";
+import { EmployeeRow } from "./EmployeeRow";
+import "./Leaderboard.css";
 
 export const Leaderboard: React.FC = () => {
   const employees: Employee[] = employeesData;
 
   const [filterOptions, setFilterOptions] = useState<FilterOptions>({
-    year: '',
-    quarter: '',
-    category: '',
-    searchTerm: '',
+    year: "",
+    quarter: "",
+    category: "",
+    searchTerm: "",
   });
 
   // Get unique years, quarters, and categories from employees
@@ -22,7 +22,9 @@ export const Leaderboard: React.FC = () => {
   }, []);
 
   const quarters = useMemo(() => {
-    return [...new Set(employees.map((emp) => emp.quarter))].sort((a, b) => a - b);
+    return [...new Set(employees.map((emp) => emp.quarter))].sort(
+      (a, b) => a - b,
+    );
   }, []);
 
   const categories = useMemo(() => {
@@ -40,29 +42,31 @@ export const Leaderboard: React.FC = () => {
     let filtered = employees;
 
     // Filter by year
-    if (filterOptions.year !== '') {
+    if (filterOptions.year !== "") {
       filtered = filtered.filter((emp) => emp.year === filterOptions.year);
     }
 
     // Filter by quarter
-    if (filterOptions.quarter !== '') {
-      filtered = filtered.filter((emp) => emp.quarter === filterOptions.quarter);
+    if (filterOptions.quarter !== "") {
+      filtered = filtered.filter(
+        (emp) => emp.quarter === filterOptions.quarter,
+      );
     }
 
     // Filter by category in activities
-    if (filterOptions.category !== '') {
+    if (filterOptions.category !== "") {
       filtered = filtered.filter((emp) =>
-        emp.activities.some((act) => act.category === filterOptions.category)
+        emp.activities.some((act) => act.category === filterOptions.category),
       );
     }
 
     // Filter by search term (name or position)
-    if (filterOptions.searchTerm !== '') {
+    if (filterOptions.searchTerm !== "") {
       const searchLower = filterOptions.searchTerm.toLowerCase();
       filtered = filtered.filter(
         (emp) =>
           emp.name.toLowerCase().includes(searchLower) ||
-          emp.jobPosition.toLowerCase().includes(searchLower)
+          emp.jobPosition.toLowerCase().includes(searchLower),
       );
     }
 
@@ -91,7 +95,9 @@ export const Leaderboard: React.FC = () => {
         <h2>All Employees</h2>
         <div className="employees-list">
           {filteredEmployees.length > 0 ? (
-            filteredEmployees.map((employee) => <EmployeeRow key={employee.id} employee={employee} />)
+            filteredEmployees.map((employee) => (
+              <EmployeeRow key={employee.id} employee={employee} />
+            ))
           ) : (
             <div className="no-results">
               <p>No employees found matching your filters.</p>

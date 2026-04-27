@@ -14,6 +14,7 @@ A modern, responsive React + TypeScript application for displaying and managing 
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Node.js 16+ and npm
 
 ### Installation
@@ -70,6 +71,7 @@ src/
 ## 📊 Data Structure
 
 ### Employee
+
 ```typescript
 interface Employee {
   id: string;
@@ -85,6 +87,7 @@ interface Employee {
 ```
 
 ### Activity
+
 ```typescript
 interface Activity {
   id: string;
@@ -96,10 +99,11 @@ interface Activity {
 ```
 
 ### FilterOptions
+
 ```typescript
 interface FilterOptions {
-  year: number | '';
-  quarter: number | '';
+  year: number | "";
+  quarter: number | "";
   category: string;
   searchTerm: string;
 }
@@ -108,6 +112,7 @@ interface FilterOptions {
 ## 🎨 Styling Guide
 
 ### Color Palette
+
 - Primary Gradient: `linear-gradient(135deg, #667eea 0%, #764ba2 100%)`
 - Background Gradient: `linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)`
 - Text Primary: `#333`
@@ -115,26 +120,31 @@ interface FilterOptions {
 - Text Light: `#999`
 
 ### Spacing Scale
+
 - `0.5rem`, `1rem`, `1.5rem`, `2rem`, `3rem`
 
 ### Typography
+
 - Font Family: System fonts (SF Pro Display, Segoe UI, Roboto)
 - Font Sizes: `0.85rem`, `0.9rem`, `0.95rem`, `1rem`, `1.1rem`, `1.2rem`, `1.4rem`
 
 ## 🔧 Adding New Features
 
 ### Add a New Employee
+
 1. Open `src/data/employees.json`
 2. Add a new employee object following the Employee interface
 3. Ensure unique `id` and appropriate `rank`
 4. Include at least one activity entry
 
 ### Add a New Filter Option
+
 1. Update `FilterOptions` in `src/types/employee.ts`
 2. Add form field in `FilterForm.tsx`
 3. Implement filter logic in `Leaderboard.tsx`
 
 ### Create a New Component
+
 1. Create `ComponentName.tsx` in `src/components/`
 2. Create `ComponentName.css` in same directory
 3. Export as named component with TypeScript typing
@@ -165,12 +175,14 @@ interface FilterOptions {
 ## 🛠 Development Workflow
 
 ### Code Style
+
 - TypeScript strict mode enabled
 - ESLint for code quality
 - Prettier for code formatting
 - 2-space indentation
 
 ### Available Scripts
+
 ```bash
 npm run dev         # Start dev server with HMR
 npm run build       # Build for production
@@ -216,10 +228,14 @@ npm run type-check  # Type-check TypeScript
 ## 📖 Documentation
 
 For more detailed information, see:
+
 - `.github/copilot-instructions.md` - GitHub Copilot instructions
 - `.cursor/rules.json` - Copilot agent definitions
 
 ## 📝 License
 
 This project is part of the AI Challenge 2 exercise.
+
+```
+
 ```

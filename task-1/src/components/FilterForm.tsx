@@ -1,6 +1,6 @@
-import React from 'react';
-import type { FilterOptions } from '../types/employee';
-import './FilterForm.css';
+import React from "react";
+import type { FilterOptions } from "../types/employee";
+import "./FilterForm.css";
 
 interface FilterFormProps {
   filterOptions: FilterOptions;
@@ -21,7 +21,7 @@ export const FilterForm: React.FC<FilterFormProps> = ({
     const value = e.target.value;
     onFilterChange({
       ...filterOptions,
-      year: value === '' ? '' : parseInt(value),
+      year: value === "" ? "" : parseInt(value),
     });
   };
 
@@ -29,7 +29,7 @@ export const FilterForm: React.FC<FilterFormProps> = ({
     const value = e.target.value;
     onFilterChange({
       ...filterOptions,
-      quarter: value === '' ? '' : parseInt(value),
+      quarter: value === "" ? "" : parseInt(value),
     });
   };
 
@@ -51,7 +51,11 @@ export const FilterForm: React.FC<FilterFormProps> = ({
     <form className="filter-form">
       <div className="form-group">
         <label htmlFor="year">Year</label>
-        <select id="year" value={filterOptions.year} onChange={handleYearChange}>
+        <select
+          id="year"
+          value={filterOptions.year}
+          onChange={handleYearChange}
+        >
           <option value="">All Years</option>
           {years.map((year) => (
             <option key={year} value={year}>
@@ -63,7 +67,11 @@ export const FilterForm: React.FC<FilterFormProps> = ({
 
       <div className="form-group">
         <label htmlFor="quarter">Quarter</label>
-        <select id="quarter" value={filterOptions.quarter} onChange={handleQuarterChange}>
+        <select
+          id="quarter"
+          value={filterOptions.quarter}
+          onChange={handleQuarterChange}
+        >
           <option value="">All Quarters</option>
           {quarters.map((q) => (
             <option key={q} value={q}>
@@ -75,7 +83,11 @@ export const FilterForm: React.FC<FilterFormProps> = ({
 
       <div className="form-group">
         <label htmlFor="category">Category</label>
-        <select id="category" value={filterOptions.category} onChange={handleCategoryChange}>
+        <select
+          id="category"
+          value={filterOptions.category}
+          onChange={handleCategoryChange}
+        >
           <option value="">All Categories</option>
           {categories.map((cat) => (
             <option key={cat} value={cat}>

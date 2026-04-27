@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import type { Employee } from '../types/employee';
-import './EmployeeRow.css';
+import React, { useState } from "react";
+import type { Employee } from "../types/employee";
+import "./EmployeeRow.css";
 
 interface EmployeeRowProps {
   employee: Employee;
@@ -17,13 +17,17 @@ export const EmployeeRow: React.FC<EmployeeRowProps> = ({ employee }) => {
         role="button"
         tabIndex={0}
         onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
+          if (e.key === "Enter" || e.key === " ") {
             setIsExpanded(!isExpanded);
           }
         }}
       >
         <div className="rank-badge">{employee.rank}</div>
-        <img src={employee.avatar} alt={employee.name} className="employee-avatar" />
+        <img
+          src={employee.avatar}
+          alt={employee.name}
+          className="employee-avatar"
+        />
         <div className="employee-basic-info">
           <h3>{employee.name}</h3>
           <p>{employee.jobPosition}</p>
@@ -32,8 +36,11 @@ export const EmployeeRow: React.FC<EmployeeRowProps> = ({ employee }) => {
           <span className="score">{employee.totalScore.toLocaleString()}</span>
           <span className="score-label">pts</span>
         </div>
-        <button className="expand-btn" aria-label={isExpanded ? 'Collapse' : 'Expand'}>
-          <span className={`icon ${isExpanded ? 'expanded' : ''}`}>▼</span>
+        <button
+          className="expand-btn"
+          aria-label={isExpanded ? "Collapse" : "Expand"}
+        >
+          <span className={`icon ${isExpanded ? "expanded" : ""}`}>▼</span>
         </button>
       </div>
 
@@ -55,11 +62,15 @@ export const EmployeeRow: React.FC<EmployeeRowProps> = ({ employee }) => {
                   <tr key={activity.id}>
                     <td className="activity-name">{activity.activity}</td>
                     <td>
-                      <span className={`category-badge ${activity.category.toLowerCase().replace(/\s+/g, '-')}`}>
+                      <span
+                        className={`category-badge ${activity.category.toLowerCase().replace(/\s+/g, "-")}`}
+                      >
                         {activity.category}
                       </span>
                     </td>
-                    <td className="date">{new Date(activity.date).toLocaleDateString()}</td>
+                    <td className="date">
+                      {new Date(activity.date).toLocaleDateString()}
+                    </td>
                     <td className="points">{activity.points}</td>
                   </tr>
                 ))}
