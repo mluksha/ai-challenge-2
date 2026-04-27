@@ -40,9 +40,28 @@ export const Leaderboard: React.FC = () => {
     return Array.from(cats).sort();
   }, []);
 
-  // Filter and sort employees
+  // Rank employees globally before applying any filters.
+  const rankedEmployees = useMemo(() => {
+    return [...employees].sort((a, b) => {
+      const scoreDiff = getTotalScore(b) - getTotalScore(a);
+      if (scoreDiff !== 0) return scoreDiff;
+      return a.name.localeCompare(b.name);
+    });
+  }, []);
+
+  const hasActiveFilters =
+    filterOptions.year !== "" ||
+    filterOptions.quarter !== "" ||
+    filterOptions.category !== "" ||
+    filterOptions.searchTerm.trim() !== "";
+
+  const rankByEmployeeId = useMemo(() => {
+    return new Map(rankedEmployees.map((employee, index) => [employee.id, index + 1]));
+  }, [rankedEmployees]);
+
+  // Apply filters on top of pre-ranked employees to preserve original rank order.
   const filteredEmployees = useMemo(() => {
-    let filtered = employees;
+    let filtered = rankedEmployees;
 
     // Filter by year
     if (filterOptions.year !== "") {
@@ -73,13 +92,8 @@ export const Leaderboard: React.FC = () => {
       );
     }
 
-    // Sort by computed total score (descending) so highest performer is first.
-    return filtered.sort((a, b) => {
-      const scoreDiff = getTotalScore(b) - getTotalScore(a);
-      if (scoreDiff !== 0) return scoreDiff;
-      return a.name.localeCompare(b.name);
-    });
-  }, [filterOptions]);
+    return filtered;
+  }, [filterOptions, rankedEmployees]);
 
   return (
     <div className="leaderboard-container">
@@ -99,7 +113,7 @@ export const Leaderboard: React.FC = () => {
           />
         </div>
 
-        <Pedestal employees={filteredEmployees} />
+        {!hasActiveFilters && <Pedestal employees={rankedEmployees} />}
 
         <div className="employees-list">
           {filteredEmployees.length > 0 ? (
@@ -107,7 +121,7 @@ export const Leaderboard: React.FC = () => {
               <EmployeeRow
                 key={employee.id}
                 employee={employee}
-                displayRank={index + 1}
+                displayRank={rankByEmployeeId.get(employee.id) ?? index + 1}
               />
             ))
           ) : (
