@@ -131,3 +131,7 @@ To keep behavior predictable, these are explicit non-goals:
 - No roles other than **Host** and **Checker**
 - No RSVP approval flow — RSVP is instant (or waitlisted)
 - No RSVPs on past events
+
+# CSV
+"Name","Email","RSVP status","Check-in time"
+"User1","user1@mail.com","confirmed",""
