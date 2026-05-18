@@ -44,7 +44,58 @@ const MIGRATIONS: Migration[] = [
         VALUES ('schema_version', '1');
     `,
   },
-  // Stage 2 will add version 2 here (flights, schedule_entries, etc.)
+  {
+    version: 2,
+    description: "Create flights and schedule_entries tables",
+    up: `
+      CREATE TABLE IF NOT EXISTS flights (
+        id               TEXT    PRIMARY KEY,
+        flight_number    TEXT    NOT NULL,
+        operation_type   TEXT    NOT NULL
+                         CHECK (operation_type IN ('arrival','departure')),
+        priority         TEXT    NOT NULL DEFAULT 'medium'
+                         CHECK (priority IN ('high','medium','low')),
+        state            TEXT    NOT NULL DEFAULT 'queued'
+                         CHECK (state IN ('queued','scheduled','completed','cancelled','blocked')),
+        scheduled_time   TEXT    NULL,
+        depends_on       TEXT    NULL,
+        preferred_runway INTEGER NULL,
+        block_reason     TEXT    NULL,
+        created_at       TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+        updated_at       TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'))
+      );
+
+      CREATE INDEX IF NOT EXISTS idx_flights_state
+        ON flights (state);
+
+      CREATE INDEX IF NOT EXISTS idx_flights_priority
+        ON flights (priority);
+
+      CREATE TABLE IF NOT EXISTS schedule_entries (
+        id               TEXT    PRIMARY KEY,
+        flight_id        TEXT    NOT NULL REFERENCES flights(id) ON DELETE CASCADE,
+        runway_id        INTEGER NOT NULL,
+        gate_id          INTEGER NOT NULL,
+        crew_id          INTEGER NOT NULL,
+        start_time       TEXT    NOT NULL,
+        end_time         TEXT    NOT NULL,
+        duration_minutes INTEGER NOT NULL,
+        created_at       TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'))
+      );
+
+      CREATE INDEX IF NOT EXISTS idx_schedule_flight_id
+        ON schedule_entries (flight_id);
+
+      CREATE INDEX IF NOT EXISTS idx_schedule_runway_time
+        ON schedule_entries (runway_id, start_time, end_time);
+
+      CREATE INDEX IF NOT EXISTS idx_schedule_gate_time
+        ON schedule_entries (gate_id, start_time, end_time);
+
+      CREATE INDEX IF NOT EXISTS idx_schedule_crew_time
+        ON schedule_entries (crew_id, start_time, end_time);
+    `,  
+  },
   // Stage 4 will add version 3 here (config_snapshots)
 ];
 
@@ -76,15 +127,8 @@ export function runMigrations(db: Database.Database): number {
     if (appliedVersions.has(migration.version)) continue;
 
     const applyMigration = db.transaction(() => {
-      // Split on semicolons and run each statement individually
-      const statements = migration.up
-        .split(";")
-        .map((s) => s.trim())
-        .filter((s) => s.length > 0);
-
-      for (const stmt of statements) {
-        db.exec(stmt + ";");
-      }
+      // better-sqlite3 exec() supports multiple statements in one call
+      db.exec(migration.up);
 
       db.prepare(
         "INSERT INTO schema_migrations (version, description) VALUES (?, ?)"
