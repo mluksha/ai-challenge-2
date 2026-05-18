@@ -25,6 +25,10 @@ import { SERVER_NAME, SERVER_VERSION } from "./domain/constants.js";
 
 // ── Tool registrations ────────────────────────────────────────────────────────
 import { registerGetServerStatus } from "./tools/getServerStatus.js";
+import { registerSubmitFlight } from "./tools/submitFlight.js";
+
+// ── Resource registrations ───────────────────────────────────────────────────
+import { registerFlightsResource } from "./resources/flightsResource.js";
 
 /**
  * Creates and configures the MCP server.
@@ -38,15 +42,15 @@ export function createServer(config: Readonly<EnvConfig>): McpServer {
 
   // ── Stage 1 tools ─────────────────────────────────────────────────────────
   registerGetServerStatus(server, config);
+  registerSubmitFlight(server);
 
-  // Stage 3: registerSubmitFlight(server, config)
   // Stage 5: registerGenerateSchedule(server, config)
   // Stage 7: registerCancelFlight(server, config)
   // Stage 8: registerGetAirportStatus(server, config)
   // Stage 9: registerGetBottleneck(server, config)
 
   // ── Stage 3 resources ─────────────────────────────────────────────────────
-  // registerFlightsResource(server)
+  registerFlightsResource(server);
 
   // ── Stage 6 resources ─────────────────────────────────────────────────────
   // registerTimelineResource(server)
