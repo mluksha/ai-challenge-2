@@ -8,6 +8,7 @@
  */
 
 import type { FlightState, OperationType, Priority } from "./constants.js";
+export type { FlightState, OperationType, Priority } from "./constants.js";
 
 // ── Server ───────────────────────────────────────────────────────────────────
 

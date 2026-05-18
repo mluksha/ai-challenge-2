@@ -26,6 +26,7 @@ import { SERVER_NAME, SERVER_VERSION } from "./domain/constants.js";
 // ── Tool registrations ────────────────────────────────────────────────────────
 import { registerGetServerStatus } from "./tools/getServerStatus.js";
 import { registerSubmitFlight } from "./tools/submitFlight.js";
+import { registerGenerateSchedule } from "./tools/generateSchedule.js";
 
 // ── Resource registrations ───────────────────────────────────────────────────
 import { registerFlightsResource } from "./resources/flightsResource.js";
@@ -43,8 +44,8 @@ export function createServer(config: Readonly<EnvConfig>): McpServer {
   // ── Stage 1 tools ─────────────────────────────────────────────────────────
   registerGetServerStatus(server, config);
   registerSubmitFlight(server);
+  registerGenerateSchedule(server, config);
 
-  // Stage 5: registerGenerateSchedule(server, config)
   // Stage 7: registerCancelFlight(server, config)
   // Stage 8: registerGetAirportStatus(server, config)
   // Stage 9: registerGetBottleneck(server, config)

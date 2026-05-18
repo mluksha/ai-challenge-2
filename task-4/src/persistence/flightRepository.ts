@@ -115,3 +115,26 @@ export function listFlights(): Flight[] {
 
   return rows.map(mapFlightRow);
 }
+
+/**
+ * Returns flights eligible for schedule computation.
+ *
+ * Full replacement scheduling includes:
+ * - queued flights
+ * - blocked flights (retry)
+ * - currently scheduled flights (recomputed in each run)
+ *
+ * Cancelled/completed flights are intentionally excluded.
+ */
+export function listFlightsForScheduling(): Flight[] {
+  const db = getDb();
+  const rows = db
+    .prepare(
+      `SELECT * FROM flights
+       WHERE state IN ('queued','blocked','scheduled')
+       ORDER BY created_at ASC, id ASC`
+    )
+    .all() as FlightRow[];
+
+  return rows.map(mapFlightRow);
+}
