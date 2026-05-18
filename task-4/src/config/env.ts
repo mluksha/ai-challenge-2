@@ -5,7 +5,9 @@
  * Fails immediately at startup with a clear message if anything is missing or invalid.
  * Returns a frozen AirportConfig object.
  *
- * Stages that modify this file: 1 (dbPath only), 4 (full airport config)
+ * All airport config variables are REQUIRED (Stage 4).
+ *
+ * Stages that modify this file: 1 (skeleton), 4 (full airport config, all required)
  */
 
 import path from "node:path";
@@ -15,10 +17,9 @@ import type { AirportConfig } from "../domain/types.js";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = path.resolve(__dirname, "../..");
 
-function readInt(name: string, defaultValue?: number): number {
+function readInt(name: string): number {
   const raw = process.env[name];
   if (raw === undefined || raw.trim() === "") {
-    if (defaultValue !== undefined) return defaultValue;
     throw new Error(`[config] Missing required environment variable: ${name}`);
   }
   const parsed = parseInt(raw, 10);
@@ -47,24 +48,32 @@ let _config: Readonly<EnvConfig> | null = null;
  * Parses and validates environment variables once.
  * Subsequent calls return the cached result.
  * Throws on invalid / missing values.
+ *
+ * All airport configuration must be provided via environment variables.
+ * Configuration is treated as immutable after load and applied to all schedules
+ * generated during this server process. If you change config, restart the server.
+ *
+ * Note on config changes:
+ *   - Config changes do NOT retroactively reschedule existing flights.
+ *   - Only flights in 'queued' or 'blocked' state are eligible for re-scheduling.
+ *   - On server restart with new config, the next call to generateSchedule will
+ *     use the new config and produce a fresh schedule.
  */
 export function loadConfig(): Readonly<EnvConfig> {
   if (_config) return _config;
 
   const dbPath = readPath("ATC_DB_PATH", "./data/atc.db");
 
-  // Stage 4 will make these truly mandatory.
-  // For Stage 1 we provide safe defaults so the server starts without a .env file.
   const airport: AirportConfig = Object.freeze({
-    runwayCount: readInt("ATC_RUNWAY_COUNT", 2),
-    gateCount: readInt("ATC_GATE_COUNT", 10),
-    crewCount: readInt("ATC_CREW_COUNT", 4),
-    sepArrivalArrival: readInt("ATC_SEP_ARRIVAL_ARRIVAL", 3),
-    sepDepartureDeparture: readInt("ATC_SEP_DEPARTURE_DEPARTURE", 2),
-    sepMixed: readInt("ATC_SEP_MIXED", 5),
-    gateTurnaround: readInt("ATC_GATE_TURNAROUND", 30),
-    dependencyBuffer: readInt("ATC_DEPENDENCY_BUFFER", 10),
-    scheduleHorizon: readInt("ATC_SCHEDULE_HORIZON", 480),
+    runwayCount: readInt("ATC_RUNWAY_COUNT"),
+    gateCount: readInt("ATC_GATE_COUNT"),
+    crewCount: readInt("ATC_CREW_COUNT"),
+    sepArrivalArrival: readInt("ATC_SEP_ARRIVAL_ARRIVAL"),
+    sepDepartureDeparture: readInt("ATC_SEP_DEPARTURE_DEPARTURE"),
+    sepMixed: readInt("ATC_SEP_MIXED"),
+    gateTurnaround: readInt("ATC_GATE_TURNAROUND"),
+    dependencyBuffer: readInt("ATC_DEPENDENCY_BUFFER"),
+    scheduleHorizon: readInt("ATC_SCHEDULE_HORIZON"),
   });
 
   _config = Object.freeze({ dbPath, airport });

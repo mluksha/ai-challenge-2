@@ -1,0 +1,17 @@
+[startup] Airport Config:
+  runways: 2
+  gates: 10
+  crews: 4
+  sep (arr→arr): 3m
+  sep (dep→dep): 2m
+  sep (mixed): 5m
+  gate turnaround: 30m
+  dependency buffer: 10m
+  schedule horizon: 480m
+  DB path: /Users/mikita/Documents/Work/Tabeeb/ai-challenge-2/task-4/data/atc.db
+[migrations] Applied version 1: Create schema_migrations and server_meta tables
+[migrations] Applied version 2: Create flights and schedule_entries tables
+[migrations] Applied version 3: Create config_snapshots table for airport configuration history
+[startup] Schema version: 3
+[config] Persisted config snapshot: 656d98de-3e88-4a4c-a602-244969991a37 at 2026-05-18T14:27:07.965Z
+[startup] ATC MCP Server running on stdio

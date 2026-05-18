@@ -96,7 +96,28 @@ const MIGRATIONS: Migration[] = [
         ON schedule_entries (crew_id, start_time, end_time);
     `,  
   },
-  // Stage 4 will add version 3 here (config_snapshots)
+  {
+    version: 3,
+    description: "Create config_snapshots table for airport configuration history",
+    up: `
+      CREATE TABLE IF NOT EXISTS config_snapshots (
+        id               TEXT    PRIMARY KEY,
+        runway_count     INTEGER NOT NULL,
+        gate_count       INTEGER NOT NULL,
+        crew_count       INTEGER NOT NULL,
+        sep_arrival_arrival    INTEGER NOT NULL,
+        sep_departure_departure INTEGER NOT NULL,
+        sep_mixed         INTEGER NOT NULL,
+        gate_turnaround  INTEGER NOT NULL,
+        dependency_buffer INTEGER NOT NULL,
+        schedule_horizon INTEGER NOT NULL,
+        created_at       TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'))
+      );
+
+      CREATE INDEX IF NOT EXISTS idx_config_snapshots_created_at
+        ON config_snapshots (created_at DESC);
+    `,
+  },
 ];
 
 /**
