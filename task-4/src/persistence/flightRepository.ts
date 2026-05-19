@@ -138,3 +138,72 @@ export function listFlightsForScheduling(): Flight[] {
 
   return rows.map(mapFlightRow);
 }
+
+export function getFlightById(flightId: string): Flight | null {
+  const db = getDb();
+  const row = db
+    .prepare("SELECT * FROM flights WHERE id = ?")
+    .get(flightId) as FlightRow | undefined;
+
+  return row ? mapFlightRow(row) : null;
+}
+
+export function getFlightByNumber(flightNumber: string): Flight | null {
+  const db = getDb();
+  const rows = db
+    .prepare(
+      "SELECT * FROM flights WHERE flight_number = ? ORDER BY created_at ASC, id ASC LIMIT 2"
+    )
+    .all(flightNumber) as FlightRow[];
+
+  if (rows.length === 0) {
+    return null;
+  }
+
+  if (rows.length > 1) {
+    throw new Error(
+      `[persistence] Multiple flights found for flight_number ${flightNumber}; cancellation requires a unique flight number.`
+    );
+  }
+
+  return mapFlightRow(rows[0]);
+}
+
+export function getFlightByNumberOrThrow(flightNumber: string): Flight {
+  const flight = getFlightByNumber(flightNumber);
+  if (!flight) {
+    throw new Error(`[persistence] Flight not found: ${flightNumber}`);
+  }
+  return flight;
+}
+
+export function cancelFlightById(flightId: string, reason: string): Flight | null {
+  const db = getDb();
+  const timestamp = nowIso();
+
+  const tx = db.transaction(() => {
+    const existing = db
+      .prepare("SELECT * FROM flights WHERE id = ?")
+      .get(flightId) as FlightRow | undefined;
+
+    if (!existing) return null;
+
+    if (existing.state === "cancelled") {
+      return mapFlightRow(existing);
+    }
+
+    db.prepare(
+      `UPDATE flights
+       SET state = 'cancelled', scheduled_time = NULL, block_reason = ?, updated_at = ?
+       WHERE id = ?`
+    ).run(reason, timestamp, flightId);
+
+    const updated = db
+      .prepare("SELECT * FROM flights WHERE id = ?")
+      .get(flightId) as FlightRow | undefined;
+
+    return updated ? mapFlightRow(updated) : null;
+  });
+
+  return tx();
+}
