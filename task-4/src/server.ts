@@ -30,6 +30,9 @@ import { registerGenerateSchedule } from "./tools/generateSchedule.js";
 
 // ── Resource registrations ───────────────────────────────────────────────────
 import { registerFlightsResource } from "./resources/flightsResource.js";
+import { registerTimelineResource } from "./resources/timelineResource.js";
+import { registerRunwaysResource } from "./resources/runwaysResource.js";
+import { registerGatesResource } from "./resources/gatesResource.js";
 
 /**
  * Creates and configures the MCP server.
@@ -54,9 +57,9 @@ export function createServer(config: Readonly<EnvConfig>): McpServer {
   registerFlightsResource(server);
 
   // ── Stage 6 resources ─────────────────────────────────────────────────────
-  // registerTimelineResource(server)
-  // registerRunwaysResource(server)
-  // registerGatesResource(server)
+  registerTimelineResource(server);
+  registerRunwaysResource(server, config);
+  registerGatesResource(server, config);
 
   return server;
 }
