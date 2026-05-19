@@ -1,0 +1,8 @@
+{
+  "chat.tools.terminal.autoApprove": {
+    "npm install": true,
+    "timeout": true,
+    "true": true,
+    "sqlite3": true
+  }
+}
