@@ -177,6 +177,11 @@ export interface AirportStatus {
     gates: { total: number; inUse: number };
     crews: { total: number; inUse: number };
   };
+  constrainedResources: {
+    runways: number[];
+    gates: number[];
+    crews: number[];
+  };
   schedule: {
     hasSchedule: boolean;
     /** ISO-8601 of the last scheduled flight's endTime, or null */

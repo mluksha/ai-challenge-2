@@ -28,6 +28,7 @@ import { registerGetServerStatus } from "./tools/getServerStatus.js";
 import { registerSubmitFlight } from "./tools/submitFlight.js";
 import { registerGenerateSchedule } from "./tools/generateSchedule.js";
 import { registerCancelFlight } from "./tools/cancelFlight.js";
+import { registerGetAirportStatus } from "./tools/getAirportStatus.js";
 
 // ── Resource registrations ───────────────────────────────────────────────────
 import { registerFlightsResource } from "./resources/flightsResource.js";
@@ -50,8 +51,8 @@ export function createServer(config: Readonly<EnvConfig>): McpServer {
   registerSubmitFlight(server);
   registerGenerateSchedule(server, config);
   registerCancelFlight(server, config);
+  registerGetAirportStatus(server, config);
 
-  // Stage 8: registerGetAirportStatus(server, config)
   // Stage 9: registerGetBottleneck(server, config)
 
   // ── Stage 3 resources ─────────────────────────────────────────────────────
